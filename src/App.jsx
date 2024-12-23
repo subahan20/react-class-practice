@@ -1,23 +1,25 @@
-import Button from "./components/button/button"
 import Card from "./components/card/card"
-import { HeadingOne, HeadingTwo, HeadingThree, HeadingFour, HeadingFive } from "./components/heading/headings"
 import { ImageComponent } from "./components/image/image"
 import { OrderedLists, UnorderedLists } from "./components/list/list"
 
+
 const App = () => {
+  const isMorning = true
   return (
     <div>
-      <Button />
-      <HeadingOne />
-      <HeadingTwo />
-      <HeadingThree />
-      <HeadingFour />
-      <HeadingFive />
-      <HeadingFive />
-      <OrderedLists />
-      <UnorderedLists />
-      <ImageComponent />
-      <Card />
+      {
+        isMorning ?
+          <>
+            <h1>Hello World</h1>
+            <ImageComponent />
+            <OrderedLists />
+            <UnorderedLists />
+          </> :
+          <div>
+            <h1>Hello</h1>
+            <Card />
+          </div>
+      }
     </div>
   )
 }
