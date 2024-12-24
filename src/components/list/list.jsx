@@ -1,8 +1,11 @@
 
-export const OrderedLists = () => {
+export const OrderedLists = ({ list }) => {
     return (
         <ol>
-            <ListItems />
+            {/* <ListItems /> */}
+            {
+                list.map((eachList, index) => <li key={index}>{eachList}</li>)
+            }
         </ol>
     )
 }
