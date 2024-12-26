@@ -1,26 +1,20 @@
 import Button from "./components/button/button"
-import { HeadingOne, HeadingTwo } from "./components/heading/headings"
-import { ImageComponent } from "./components/image/image"
-import { OrderedLists } from "./components/list/list"
-import { recipeData } from "./data/recipeData"
-
+import Greeting from "./components/greeting/greeting"
 
 
 const App = () => {
 
+  const clickHandler = (name) => alert(`I am clicked my name is ${name}`)
+
   return (
     <div>
       {
-        recipeData.recipes.map((eachRecipe, index) => {
+        [{ name: "subahan", role: "Front-End Developer" }, { name: "Tulasi", role: "Angular Developer" }, { name: "Thirmul", role: "Back-End Developer" }].map((eachName, index) => {
+          const { name, role } = eachName
           return (
             <div key={index}>
-              <HeadingOne text={eachRecipe.name} />
-              <ImageComponent source={eachRecipe.image} alternateText={eachRecipe.name} height={100} width={100} />
-              <HeadingTwo text={"List of ingredients to prepare the recipe"} />
-              <OrderedLists list={eachRecipe.ingredients} />
-              <HeadingTwo text={"List of instructions to prepare the recipe"} />
-              <OrderedLists list={eachRecipe.instructions} />
-              <Button text={"start preparation"} bgColor={"green"} />
+              <Greeting key={index} text={`I am ${role}`}>{name}</Greeting>
+              <Button text={"Click Me"} onPress={() => clickHandler(name)} bgColor={"green"} />
             </div>
           )
         })
